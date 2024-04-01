@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block contenido %}  
+  
+    {% if alumnos %}
+        <ul>
+        {% for alumno in alumnos %}
+            <li>Nombre: {{alumno.nombre}}</li>
+            <li>cursando: {{alumno.cursando}}</li>
+
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron cursos con ese nombre</p>
+    {% endif %}
+
+
+{% endblock %}
+    
