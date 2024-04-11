@@ -3,7 +3,9 @@ from AppCoder.models import *
 from django.http import HttpResponse
 from django.template import loader
 from AppCoder.forms import *
-
+from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -154,4 +156,108 @@ def buscar_A(request):
     else:
         return HttpResponse("Ingrese el nombre del alumno")
     
+
+def elimina_curso(request , id ):
+    curso = Curso.objects.get(id=id)
+    curso.delete()
+
+    curso = Curso.objects.all()
+
+    return render(request , "cursos.html" , {"cursos":curso})
+
+
+
+
+def editar(request , id):
+
+    curso = Curso.objects.get(id=id)
+
+    if request.method == "POST":
+
+        mi_formulario = Curso_formulario( request.POST )
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+            curso.nombre = datos["nombre"]
+            curso.camada = datos["camada"]
+            curso.save()
+
+            curso = Curso.objects.all()
+
+            return render(request , "cursos.html" , {"cursos":curso})
+
+
+        
+    else:
+        mi_formulario = Curso_formulario(initial={"nombre":curso.nombre , "camada":curso.camada})
+    
+    return render( request , "editar_curso.html" , {"mi_formulario": mi_formulario , "curso":curso})
+
+
+
+
+def login_request(request):
+
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+
+            usuario = form.cleaned_data.get("username")
+            contra = form.cleaned_data.get("password")
+
+            user = authenticate(username=usuario , password=contra)
+
+            if user is not None:
+                login(request , user )
+                avatares = Avatar.objects.filter(user=request.user.id)
+                return render( request , "inicio.html" , {"url":avatares[0].imagen.url})
+            else:
+                return HttpResponse(f"Usuario no encontrado")
+        else:
+            return HttpResponse(f"FORM INCORRECTO {form}")
+
+
+    form = AuthenticationForm()
+    return render( request , "login.html" , {"form":form})
+
+
+
+
+def register(request):
+    
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponse("Usuario creado")
+
+    else:
+        form = UserCreationForm()
+    return render(request , "registro.html" , {"form":form})
+
+
+
+
+def editarPerfil(request):
+
+    usuario = request.user
+
+    if request.method == "POST":
+        
+        mi_formulario = UserEditForm(request.POST)
+
+        if mi_formulario.is_valid():
+
+            informacion = mi_formulario.cleaned_data
+            usuario.email = informacion["email"]
+            password = informacion["password1"]
+            usuario.set_password(password)
+            usuario.save()
+            return render(request , "inicio.html")
+
+    else:
+        miFormulario = UserEditForm(initial={"email":usuario.email})
+    
+    return render( request , "editar_perfil.html", {"miFormulario":miFormulario, "usuario":usuario})
 
