@@ -24,7 +24,9 @@
                 <a class="btn btn-primary" href="{% url 'cursos' %}">Cursos</a>
                 <a class="btn btn-primary" href="{% url 'ver_alumno' %}">Alumnos</a>
                 <a class="btn btn-primary" href="{% url 'ver_profesor'%}">Profesores</a>
-            
+                <a class="btn btn-primary" href="{% url 'Login' %}">Ingresar</a>
+                <a class="btn btn-primary" href="{% url 'Logout' %}">Salir</a>
+                <a class="btn btn-primary" href="{% url 'Register' %}">Registrate</a>
             </div>
         </nav>
         <!-- Masthead-->
@@ -36,16 +38,7 @@
        
         <!-- INICIO MI CONTENIDO -->
         {% block contenido %}
-        <div class="container">
-            <p>inscribite en:</p>
-            <a class="btn btn-primary" href="{% url 'formulario' %}">Cursos</a>
-            <a class="btn btn-primary" href="{% url 'alumno_formulario' %}">Alumnos</a>
-            <a class="btn btn-primary" href="{% url 'profesor_formulario'%}">Profesores</a>
-            <p>buscar un dato de:</p>
-            <a class="btn btn-primary" href="{% url 'buscando_curso' %}">Cursos</a>
-            <a class="btn btn-primary" href="{% url 'buscando_Alumno' %}">Alumnos</a>
-           
-        </div>
+
 
         {% endblock %}
 
