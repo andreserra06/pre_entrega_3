@@ -6,7 +6,7 @@
 {% block contenido %}
 
     <h2>Ingrese sus datos</h2>
-    <form action="" method="POST">
+    <form action="login" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button>Enviar</button>

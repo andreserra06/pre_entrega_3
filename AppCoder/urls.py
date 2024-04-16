@@ -10,8 +10,11 @@ urlpatterns = [
     path("alumnos", views.alumnos , name="alumnos"),
     path("alta_curso", views.curso_formulario, name= "formulario"),
     path("buscar_curso", views.buscar_curso, name= "buscando_curso"),
-    path("buscar_alumno", views.Buscar_alumno, name= "buscando_Alumno"),
+    path("buscar_alumno", views.Buscar_alumno, name= "buscando_alumno"),
+    path("buscar_profesor", views.Buscar_profesor, name= "buscando_profesor"),
     path("buscar", views.buscar),
+    path("buscar_A", views.buscar_A, name='buscar_A'),
+    path("buscar_P", views.buscar_P, name='buscar_P'),
     path("ver_alumnos", views.ver_alumnos, name='ver_alumno'),
     path("alumnos_formulario", views.alumnos_formulario, name= 'alumno_formulario'),
     path("ver_profesores", views.ver_profesores, name='ver_profesor'),
@@ -21,9 +24,7 @@ urlpatterns = [
     path("login", views.login_request , name="Login"),
     path("register", views.register , name="Register"),
     path("logout" , LogoutView.as_view(template_name="logout.html") , name="Logout"),
-    path("editarPerfil" , views.editarPerfil , name="EditarPerfil")
-
-    
-
+    path("editarPerfil" , views.editarPerfil , name="EditarPerfil"),
+   
 ]
 

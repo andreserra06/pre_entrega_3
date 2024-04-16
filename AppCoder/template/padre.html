@@ -38,7 +38,17 @@
        
         <!-- INICIO MI CONTENIDO -->
         {% block contenido %}
-
+        <div class="container">
+            <p>inscribite en:</p>
+            <a class="btn btn-primary" href="{% url 'formulario' %}">Cursos</a>
+            <a class="btn btn-primary" href="{% url 'alumno_formulario' %}">Alumnos</a>
+            <a class="btn btn-primary" href="{% url 'profesor_formulario'%}">Profesores</a>
+            <p>buscar un dato de:</p>
+            <a class="btn btn-primary" href="{% url 'buscando_curso' %}">Cursos</a>
+            <a class="btn btn-primary" href="{% url 'buscando_alumno' %}">Alumnos</a>
+            <a class="btn btn-primary" href="{% url 'buscando_alumno' %}">Profesores</a>
+           
+        </div>
 
         {% endblock %}
 

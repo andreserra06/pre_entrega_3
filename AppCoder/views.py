@@ -34,6 +34,9 @@ def ver_cursos(request):
 def alumnos(request):
     return render(request , "alumnos.html")
 
+def Profesores(request):
+    return render(request , "profesores.html")
+
 
 def curso_formulario(request):
 
@@ -145,6 +148,10 @@ def Buscar_alumno(request):
 
     return render(request, "buscar_alumno.html")
 
+def Buscar_profesor(request):
+
+    return render(request, "buscar_profesor.html")
+
 
 
 def buscar_A(request):
@@ -155,6 +162,15 @@ def buscar_A(request):
         return render( request , "resultadoAlumno.html" , {"alumnos":alumnos})
     else:
         return HttpResponse("Ingrese el nombre del alumno")
+    
+def buscar_P(request):
+
+    if request.GET["nombre"]:
+        nombre = request.GET["nombre"]
+        Profesores = Profesor.objects.filter(nombre__icontains= nombre)
+        return render( request , "resultadoAlumno.html" , {"profesor":Profesores})
+    else:
+        return HttpResponse("Ingrese el nombre del profesor")
     
 
 def elimina_curso(request , id ):

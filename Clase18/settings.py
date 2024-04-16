@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Clase18.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/andres/OneDrive/Escritorio/CursoCoderHouse/Nueva carpeta/AppCoder/template"],
+        'DIRS': ["C:/Users/andres/OneDrive/Escritorio/CursoCoderHouse/Pre_entrega_3/AppCoder/template"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
