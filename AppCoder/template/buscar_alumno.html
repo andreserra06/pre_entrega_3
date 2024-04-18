@@ -7,6 +7,7 @@
 
 <h2>Buscar alumno</h2>
 <form action="buscar_A" method="GET">
+    {% csrf_token %}
     <p>Nombre</p>
     <input type="text" name="nombre" id="nombre">
     <button>Buscar</button>

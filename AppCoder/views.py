@@ -168,7 +168,7 @@ def buscar_P(request):
     if request.GET["nombre"]:
         nombre = request.GET["nombre"]
         Profesores = Profesor.objects.filter(nombre__icontains= nombre)
-        return render( request , "resultadoProfesores.html" , {"profesor":Profesores})
+        return render( request , "resultadoProfesor.html" , {"Profesores":Profesores})
     else:
         return HttpResponse("Ingrese el nombre del profesor")
     

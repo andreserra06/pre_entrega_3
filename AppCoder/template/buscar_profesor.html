@@ -5,8 +5,9 @@
 
 {% block contenido %}
 
-<h2>Buscar alumno</h2>
-<form action="buscar_A" method="GET">
+<h2>Buscar profesor</h2>
+<form action="buscar_P" method="GET">
+    {% csrf_token %}
     <p>Nombre</p>
     <input type="text" name="nombre" id="nombre">
     <button>Buscar</button>
