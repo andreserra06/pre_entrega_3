@@ -20,10 +20,6 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
-                <a class="btn btn-primary" href="{% url 'cursos' %}">Cursos</a>
-                <a class="btn btn-primary" href="{% url 'ver_alumno' %}">Alumnos</a>
-                <a class="btn btn-primary" href="{% url 'ver_profesor'%}">Profesores</a>
                 <a class="btn btn-primary" href="{% url 'Login' %}">Ingresar</a>
                 <a class="btn btn-primary" href="{% url 'Logout' %}">Salir</a>
                 <a class="btn btn-primary" href="{% url 'Register' %}">Registrate</a>
@@ -47,6 +43,12 @@
             <a class="btn btn-primary" href="{% url 'buscando_curso' %}">Cursos</a>
             <a class="btn btn-primary" href="{% url 'buscando_alumno' %}">Alumnos</a>
             <a class="btn btn-primary" href="{% url 'buscando_profesor' %}">Profesores</a>
+            <p>ver lista completa</p>
+            <a class="btn btn-primary" href="{% url 'cursos' %}">Cursos</a>
+            <a class="btn btn-primary" href="{% url 'ver_alumno' %}">Alumnos</a>
+            <a class="btn btn-primary" href="{% url 'ver_profesor'%}">Profesores</a>  
+
+
            
         </div>
 

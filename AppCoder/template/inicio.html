@@ -5,22 +5,22 @@
 
 {% block contenido %}
 
-<nav class="navbar navbar-light bg-light static-top">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <!-- Agrega aquí los enlaces a tus archivos CSS -->
+</head>
+<body>
+    <h1></h1>
+    <h2>{{mensaje}}</h2>
+
     <div class="container">
-        <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
-        <a class="btn btn-primary" href="{% url 'cursos' %}">Cursos</a>
-        <a class="btn btn-primary" href="{% url 'ver_alumno' %}">Alumnos</a>
-        <a class="btn btn-primary" href="{% url 'ver_profesor'%}">Profesores</a>
-        <a class="btn btn-primary" href="{% url 'Login' %}">Ingresar</a>
-        <a class="btn btn-primary" href="{% url 'Logout' %}">Salir</a>
-        <a class="btn btn-primary" href="{% url 'Register' %}">Registrate</a>
-
-<h1></h1>
-   <h2>{{mensaje}}</h2>
-
-   <div class="container">
         <div class="row">
-            <div class="col-12  col-md-4">
+            <div class="col-md-4">
                 <div class="card">
                     <img src="{% static 'AppCoder/assets/img/testimonials-2.jpg' %}"/>
                     <div class="card-body">
@@ -34,11 +34,26 @@
                         <a href="{% url 'EditarPerfil' %}" class="btn btn-warning">Editar</a>
                     </div>
                 </div>
-            
+            </div>
 
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+                        <a class="btn btn-primary" href="{% url 'cursos' %}">Cursos</a>
+                        <a class="btn btn-primary" href="{% url 'ver_alumno' %}">Alumnos</a>
+                        <a class="btn btn-primary" href="{% url 'ver_profesor'%}">Profesores</a>  
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Agrega aquí los scripts de tus archivos JavaScript -->
+</body>
+</html>
+
+
 
     
 

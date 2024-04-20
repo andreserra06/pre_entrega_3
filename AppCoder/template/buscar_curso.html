@@ -5,14 +5,32 @@
 
 {% block contenido %}  
   
-    <h2>Buscar Curso</h2>
-    <form action="buscar" method="GET">
-        {% csrf_token %}
-        <p>Nombre</p>
-        <input type="text" name="nombre" id="nombre">
-        <button>Buscar</button>
-    </form> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Curso</title>
+    <!-- Agrega aquí los enlaces a tus archivos CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Buscar Curso</h2>
+        <form action="buscar" method="GET">
+            {% csrf_token %}
+            <p>Nombre</p>
+            <input type="text" name="nombre" id="nombre">
+            <button>Buscar</button>
+        </form> 
 
+        <p>volver</p>
+        <a class="btn btn-primary" href="{% url 'home' %}">Home</a>
+    </div>
+
+    <!-- Agrega aquí los scripts de tus archivos JavaScript -->
+</body>
+</html>
 
 
 {% endblock %}
