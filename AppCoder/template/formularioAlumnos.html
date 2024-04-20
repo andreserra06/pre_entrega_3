@@ -4,15 +4,19 @@
 
 
 {% block contenido %}
-    <form action="alumnos_formulario" method="POST">
-        {% csrf_token %}
-        <p>Nombre:</p>
-        <input type="text" name="nombre" required>
-        <p>Curso</p>
-        <input type="text" name="cursando" required>
-        
-        <button>Enviar</button>
-    </form>
+<form action="alumnos_formulario" method="POST" class="form my-4 mx-auto" style="max-width: 400px;">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="cursando">Curso:</label>
+        <input type="text" name="cursando" id="cursando" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<a class="btn btn-primary" href="{% url 'home' %}">Home</a>
     
 
 

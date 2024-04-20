@@ -181,6 +181,23 @@ def elimina_curso(request , id ):
 
     return render(request , "cursos.html" , {"cursos":curso})
 
+def elimina_profesor(request , id ):
+    profesores = Profesor.objects.get(id=id)
+    profesores.delete()
+
+    profesores = Profesor.objects.all()
+
+    return render(request , "ver_profesores.html" , {"profesor":profesores})
+
+def elimina_alumno(request , id ):
+    alumnos = Alumno.objects.get(id=id)
+    alumnos.delete()
+
+    alumnos = Alumno.objects.all()
+
+    return render(request , "ver_alumno.html" , {"alumno":alumnos})
+
+
 
 
 
@@ -207,6 +224,58 @@ def editar(request , id):
         mi_formulario = Curso_formulario(initial={"nombre":curso.nombre , "camada":curso.camada})
     
     return render( request , "editar_curso.html" , {"mi_formulario": mi_formulario , "curso":curso})
+
+
+
+def editar_p(request , id):
+
+    profesor = Profesor.objects.get(id=id)
+
+    if request.method == "POST":
+
+        mi_formulario = Profesor_formulario( request.POST )
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+            profesor.nombre = datos["nombre"]
+            profesor.curso_a_cargo = datos["curso_a_cargo"]
+            profesor.save()
+
+            profesor = Profesor.objects.all()
+
+            return render(request , "ver_profesores.html" , {"profesor":profesor})
+
+
+        
+    else:
+        mi_formulario = Profesor_formulario(initial={"nombre":profesor.nombre , "curso a cargo":profesor.curso_a_cargo})
+    
+    return render( request , "editar_profesor.html" , {"mi_formulario": mi_formulario , "profesor":profesor})
+
+
+
+def editar_a(request , id):
+
+    alumno = Alumno.objects.get(id=id)
+
+    if request.method == "POST":
+
+        mi_formulario = Alumnos_formulario( request.POST )
+        if mi_formulario.is_valid():
+            datos = mi_formulario.cleaned_data
+            alumno.nombre = datos["nombre"]
+            alumno.cursando = datos["cursando"]
+            alumno.save()
+
+            alumno = Alumno.objects.all()
+
+            return render(request , "ver_alumnos.html" , {"alumno":alumno})
+
+
+        
+    else:
+        mi_formulario = Alumnos_formulario(initial={"nombre":alumno.nombre , "cursando":alumno.cursando})
+    
+    return render( request , "editar_alumno.html" , {"mi_formulario": mi_formulario , "alumno":alumno})
 
 
 

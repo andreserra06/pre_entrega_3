@@ -20,6 +20,10 @@
                     <td>{{n.id}}</td>
                     <td>{{n.nombre}}</td>
                     <td>{{n.curso_a_cargo}}</td>
+
+                    <td><a href="{% url 'elimina_profesor' n.id %}" class="btn btn-danger btn-sm">BORRAR</a></td>
+                    
+                    <td><a href="{% url 'editar_profesor'  n.id %}" class="btn btn-warning btn-sm">EDITAR</a></td>
                 </tr>
 
                 {% endfor %}
