@@ -195,7 +195,7 @@ def elimina_alumno(request , id ):
 
     alumnos = Alumno.objects.all()
 
-    return render(request , "ver_alumno.html" , {"alumno":alumnos})
+    return render(request , "ver_alumnos.html" , {"alumno":alumnos})
 
 
 
